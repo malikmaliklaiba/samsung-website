@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy Watch Products</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b0f19;
+    color:white;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    position:sticky;
+    top:0;
+    background:#0f1424;
+    padding:15px 40px;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    border-bottom:1px solid #1c2440;
+}
+
+.nav-left a,
+.nav-right a{
+    color:#bfc7ff;
+    text-decoration:none;
+    margin-right:20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.nav-right{
+    text-align:right;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+}
+
+.nav-center{
+    font-size:35px;
+    font-weight:bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white; /* SAMSUNG LOGO TEXT */
+}
+
+
+/* ===== MOBILE NAVBAR ===== */
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    color:white;
+}
+
+.mobile-menu{
+    display:none;
+    flex-direction:column;
+    background: rgba(15, 20, 36, 0.95); /* semi-transparent */
+    position: fixed;      /* key change */
+    top: 70px;            /* just below navbar */
+    left: 0;
+    width: 100%;
+    z-index: 999;
+
+    backdrop-filter: blur(6px); /* modern glass effect */
+}
+
+
+.mobile-menu a{
+    padding:15px;
+    text-align:center;
+    text-decoration:none;
+    color:#bfc7ff;
+    border-bottom:1px solid #1c2440;
+}
+
+/* ===== RESPONSIVE TRIGGER ===== */
+@media(max-width:600px){
+    .nav-left,
+    .nav-right{
+        display:none;
+    }
+
+    nav{
+        grid-template-columns:1fr auto;
+    }
+
+    .menu-btn{
+        display:block;
+        text-align:right;
+    }
+}
+
+
+/* ===== HEADER ===== */
+header{
+    padding:50px 20px;
+    text-align:center;
+}
+
+header h1{
+    color:#6fa8ff;
+}
+
+/* ===== SECTION HEADING ===== */
+.section-title{
+    text-align:center;
+    font-size:26px;
+    color:#8abaff;
+    margin:40px 0 15px;
+}
+
+/* ===== PRODUCTS GRID ===== */
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    padding:20px 40px 60px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.cardborder{
+    background:#111727;
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.cardborder:hover{
+    transform:translateY(-6px);
+}
+
+/* WHITE IMAGE AREA */
+.img-boxes{
+    background:white;
+    height:300px;
+    width: auto;
+    border-radius:14px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.img-boxes img{
+    max-width:85%;
+    max-height:85%;
+    object-fit:contain;
+}
+
+.cardborder h3{
+    margin:15px 0 5px;
+}
+
+.cardborder span{
+    color:#9fb0ff;
+}
+
+/* ===== MODAL ===== */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(6px);
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.modal-box{
+    background:#0f1424;
+    width:90%;
+    max-width:750px;
+    padding:30px;
+    border-radius:20px;
+    position:relative;
+}
+
+.modal-box img{
+    width:100%;
+    height:300px;
+    background:white;
+    object-fit:contain;
+    border-radius:14px;
+}
+
+.close{
+    position:absolute;
+    top:15px;
+    right:20px;
+    font-size:26px;
+    cursor:pointer;
+}
+
+.buy-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#4f8cff;
+    color:white;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){
+    .products{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:600px){
+    .products{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-left">
+        <a href="hooome.html">Home</a>
+        <a href="moodaal.html">Models</a>
+    </div>
+
+    <div class="nav-center">SAMSUNG</div>
+
+    <div class="nav-right">
+        <a href="Evo.html">Evo</a>
+        <a href="aboutus.html">About</a>
+    </div>
+     <!-- Mobile Menu Button -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- Mobile Dropdown Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="hooome.html">Home</a>
+    <a href="moodaal.html">Models</a>
+    <a href="Evo.html">Evo</a>
+    <a href="aboutus.html">About</a>
+</div>
+</nav>
+
+<header>
+    <h1>  Galaxy Watch Products </h1>
+    
+</header>
+
+<!-- ===== FIRST SECTION ===== -->
+<h2 class="section-title">Popular Galaxy Watches</h2>
+
+<div class="products">
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch 8 Classic',
+        'PKR 85,999',
+        'Assets/1.png',
+        'Classic rotating bezel, stainless steel body, ECG monitoring, sleep coaching, and premium design.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch8-44mm-graphite-bluetooth-sm-l330ndaamea/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/1.png"></div>
+        <h3>Galaxy Watch 8 Classic</h3>
+        <span>PKR 85,999</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch 7',
+        'PKR 78,499',
+        'Assets/2.png',
+        'Lightweight aluminum body with advanced fitness tracking and long battery life.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch7-40mm-cream-bluetooth-sm-l300nze8eua/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/2.png"></div>
+        <h3>Galaxy Watch 7</h3>
+        <span>PKR 78,499</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch Ultra',
+        'PKR 72,000',
+        'Assets/1.jpg',
+        'Rugged outdoor design with dual GPS, water resistance and extreme durability.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch-ultra-titanium-gray-bluetooth-sm-l705fda8xfa/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/1.jpg"></div>
+        <h3>Galaxy Watch Ultra</h3>
+        <span>PKR 72,000</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Fit 3',
+        'PKR 18,999',
+        'Assets/image-removebg-preview (8).png',
+        'Slim fitness band with sleep tracking, steps counter and long battery life.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-fit/galaxy-fit3-pink-gold-bluetooth-sm-r390nidamea/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/image-removebg-preview (8).png"></div>
+        <h3>Galaxy Fit 3</h3>
+        <span>PKR 18,999</span>
+    </div>
+</div>
+
+<!-- ===== SECOND SECTION ===== -->
+<h2 class="section-title">Fitness & Performance Series</h2>
+
+<div class="products">
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch 8 Classic (Silver)',
+        'PKR 85,999',
+        'Assets/image-removebg-preview (4).png',
+        'Luxury silver finish with classic bezel and premium health features.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch8-44mm-silver-bluetooth-sm-l330nzsamea/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/image-removebg-preview (4).png"></div>
+        <h3>Galaxy Watch 8 Classic</h3>
+        <span>PKR 85,999</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch 7 Classic (Green) ',
+        'PKR 78,499',
+        'Assets/image-removebg-preview (9).png',
+        'Elegant cream color with powerful fitness and wellness tracking.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch7-40mm-green-bluetooth-sm-l300nzg8mea/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/image-removebg-preview (9).png"></div>
+        <h3>Galaxy Watch 7 Classic</h3>
+        <span>PKR 78,499</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch Ultra Pro',
+        'PKR 72,000',
+        'Assets/image-removebg-preview (6).png',
+        'Designed for adventurers with extra rugged build and longer battery.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch-ultra-titanium-silver-bluetooth-sm-l705fztaxfa/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/image-removebg-preview (6).png"></div>
+        <h3>Galaxy Watch Ultra (Titanium Silver)</h3>
+        <span>PKR 72,000</span>
+    </div>
+
+    <div class="cardborder" onclick="openModal(
+        'Galaxy Watch 8 46mm',
+        'PKR 54,999',
+        'Assets/image-removebg-preview (2).png',
+        'Comfortable everyday fitness band for casual health monitoring.The Samsung Galaxy Watch 8 brings AI integration (including Gemini), One UI 8 Watch, and advanced health features like an antioxidant sensor, alongside enhanced fitness tracking, a brighter MicroLED display, and better battery life',
+        'https://www.samsung.com/pk/watches/galaxy-watch/galaxy-watch8-classic-46mm-white-bluetooth-sm-l500nzwamea/buy/'
+    )">
+        <div class="img-boxes"><img src="Assets/image-removebg-preview (2).png"></div>
+        <h3>Galaxy Watch 8</h3>
+        <span>PKR 18,999</span>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+    <div class="modal-box">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="mImg">
+        <h2 id="mTitle"></h2>
+        <p id="mPrice"></p>
+        <p id="mDesc"></p>
+        <a id="mLink" class="buy-btn" target="_blank">Buy Now</a>
+    </div>
+</div>
+
+<script>
+function openModal(title, price, img, desc, link){
+    document.getElementById("mTitle").innerText = title;
+    document.getElementById("mPrice").innerText = price;
+    document.getElementById("mImg").src = img;
+    document.getElementById("mDesc").innerText = desc;
+    document.getElementById("mLink").href = link;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+function toggleMenu(){
+    const menu = document.getElementById("mobileMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+// close menu when scrolling
+window.addEventListener("scroll", () => {
+    const menu = document.getElementById("mobileMenu");
+    if(menu.style.display === "flex"){
+        menu.style.display = "none";
+    }
+});
+
+
+
+
+</script>
+
+</body>
+</html>

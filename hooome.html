@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy Watch | Home</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0f19;
+            color: white;
+        }
+
+        /* ===== NAVBAR (SAME AS MODEL PAGE) ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            background: #0f1424;
+            padding: 15px 40px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            border-bottom: 1px solid #1c2440;
+            z-index: 1000;
+        }
+
+        .nav-left a,
+        .nav-right a {
+            color: #bfc7ff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+        }
+
+        .nav-right {
+            text-align: right;
+        }
+
+        .nav-center {
+            font-size: 34px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+
+        /* ===== MOBILE NAVBAR ===== */
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(15, 20, 36, 0.95);
+            /* semi-transparent */
+            position: fixed;
+            /* key change */
+            top: 70px;
+            /* just below navbar */
+            left: 0;
+            width: 100%;
+            z-index: 999;
+
+            backdrop-filter: blur(6px);
+            /* modern glass effect */
+        }
+
+
+        .mobile-menu a {
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: #bfc7ff;
+            border-bottom: 1px solid #1c2440;
+        }
+
+        /* ===== RESPONSIVE TRIGGER ===== */
+        @media(max-width:600px) {
+
+            .nav-left,
+            .nav-right {
+                display: none;
+            }
+
+            nav {
+                grid-template-columns: 1fr auto;
+            }
+
+            .menu-btn {
+                display: block;
+                text-align: right;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 80px 30px;
+            text-align: center;
+            background: radial-gradient(circle at center, #111a3a, #0b0f19);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #6fa8ff;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .hero a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 36px;
+            background: #4f8cff;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .hero a:hover {
+            background: #6fa8ff;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-head {
+            text-align: center;
+            font-size: 26px;
+            color: #8abaff;
+            margin: 60px 0 30px;
+        }
+
+        /* ===== PRODUCTS GRID ===== */
+        .watchgrids {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 0 40px 70px;
+        }
+
+        /* ===== CARD ===== */
+        .watchcard {
+            background: #111727;
+            border-radius: 18px;
+            padding: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .watchcard:hover {
+            transform: translateY(-6px);
+        }
+
+        .img-box {
+            background: white;
+            height: 400px;
+            width: auto;
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-box img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .watchcard h3 {
+            margin: 15px 0 8px;
+            color: #9fb0ff;
+        }
+
+        .watchcard p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        /* ===== SALES SECTION ===== */
+        .sales {
+            background: #0f1424;
+            padding: 60px 40px;
+            border-top: 1px solid #1c2440;
+            margin-left: 20PX;
+        }
+
+        .sales h2 {
+            color: #6fa8ff;
+            margin-right: 50px;
+        }
+
+
+        .sales img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 12px;
+            border: 1px solid #1c2440;
+            margin-right: 120PX;
+        }
+
+        #sales-progress img {
+            width: 100%;
+            max-width: 720px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #233;
+            margin-left: 20PX;
+        }
+
+        .quick-box {
+            background: #0f1b3a;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #233;
+            margin-right: 30px;
+        }
+
+        .flex-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-left: 20PX;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #070b16;
+            border-top: 1px solid #1c2440;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:1000px) {
+            .watchgrids {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width:600px) {
+            .watchgrids {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-left">
+            <a href="hooome.html">Home</a>
+            <a href="moodaal.html">Models</a>
+        </div>
+
+        <div class="nav-center">SAMSUNG</div>
+
+        <div class="nav-right">
+            <a href="Evo.html">Evo</a>
+            <a href="aboutus.html">About</a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="hooome.html">Home</a>
+            <a href="moodaal.html">Models</a>
+            <a href="Evo.html">Evo</a>
+            <a href="aboutus.html">About</a>
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Samsung Galaxy Watch Series</h1>
+        <p>
+            Discover the future of smart wearables with Samsung Galaxy Watch.
+            Designed for health, fitness, and seamless connectivity.
+        </p>
+        <a href="moodaal.html">Explore Models</a>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <h2 class="section-head">Best Sellers</h2>
+
+    <div class="watchgrids">
+        <div class="watchcard">
+            <div class="img-box"><img src="Assets/1.png"></div>
+            <h3>Galaxy Watch 8</h3>
+            <p>Premium design with rotating bezel.</p>
+        </div>
+
+        <div class="watchcard">
+            <div class="img-box"><img src="Assets/2.png"></div>
+            <h3>Galaxy Watch 7</h3>
+            <p>Lightweight with advanced health tracking.</p>
+        </div>
+
+        <div class="watchcard">
+            <div class="img-box"><img src="Assets/3.png"></div>
+
+            <h3>Galaxy Watch Ultra</h3>
+            <p>Extreme durability for outdoor adventures.</p>
+        </div>
+
+        <div class="watchcard">
+            <div class="img-box"><img src="Assets/4.png"></div>
+            <h3>Galaxy Fit 3</h3>
+            <p>Simple, slim and powerful fitness band.</p>
+        </div>
+    </div>
+
+    <!-- SALES -->
+    <!-- <section class="sales">
+    <h2>Samsung Smartwatch Market Growth</h2>
+    <p style="opacity:0.85; max-width:800px;">
+        Samsung continues to grow its global smartwatch market share
+        with innovative technology and premium design.
+    </p>
+    <br>
+    <img src="Global-Smartwatch-Sales-Market-Share-Q3-2024-Canalys.jpg">
+</section> -->
+    <section id="sales-progress">
+        <h2 style="margin-left: 25px;">Samsung Sales Progress (2019 — 2024) </h2>
+        <p style="opacity:0.85; max-width:800px; margin-left: 25px;">
+            Below is a simple timeline showing Samsung Galaxy Watches Share In Marketplace Compared To Different
+            Competitors.</p>
+
+
+        <div class="flex-row">
+            <div style="flex:1 1 500px;">
+                <!-- Replace with the chart you downloaded -->
+                <img src="Assets/Global-Smartwatch-Sales-Market-Share-Q3-2024-Canalys.jpg" alt="Samsung Revenue Graph">
+            </div>
+
+            <div style="width:480px;">
+                <div class="quick-box">
+                    <h3>Quick Facts</h3>
+                    <ul style="line-height:1.6;">
+                        <li>2019: 5%</li>
+                        <li>2020: 10%</li>
+                        <li>2021: 12.5%</li>
+                        <li>2022: 15%</li>
+                        <li>2023: 18%</li>
+                        <li>2024: 22%</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top:15px; ; display:flex; gap:10px;">
+                    <img src="Assets/THUMB_galaxy-watch6-series-launch-film-videothumb-520x293.jpg"
+                        style="border-radius:10px;width: 425px; height: auto; margin-right: 140px;">
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2025 Samsung Galaxy Watch — Student Project
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("mobileMenu");
+            menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+        }
+
+        // close menu when scrolling
+        window.addEventListener("scroll", () => {
+            const menu = document.getElementById("mobileMenu");
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
